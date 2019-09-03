@@ -1,15 +1,15 @@
 package com.example.recreatemost.models
 
+import com.google.gson.annotations.SerializedName
+
 
 data class Article(
-    val actif: Boolean,
-    val fullUrl: String,
     val id: String,
-    val images: Images,
-    val isFF: Boolean,
-    val lien: String,
-    val nb: Int,
-    val titre: String,
+    val link: String,
+    val title: String,
     val type: String,
-    val type_contenu: String
+    @SerializedName("web_url") val webUrl: String,
+    @SerializedName("image_url") val imageUrl: String,
+    @SerializedName("count_description") val countDescription: String,
+    @SerializedName("is_france_foot") val isFranceFoot: Boolean
 )

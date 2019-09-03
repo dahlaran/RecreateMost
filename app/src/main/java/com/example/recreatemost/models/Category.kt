@@ -3,9 +3,8 @@ package com.example.recreatemost.models
 import androidx.recyclerview.widget.DiffUtil
 
 data class Category(
-    val items: List<Article>,
-    val suffixe: String,
-    val titre: String
+    var items: List<Article>,
+    val title: String
 ) {
     /**
      * Compare used for listData in CategoryAdapter
@@ -13,7 +12,7 @@ data class Category(
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Category>() {
             override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
-                return oldItem.suffixe == newItem.suffixe && oldItem.titre == newItem.titre
+                return oldItem.title == newItem.title
             }
 
             override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {

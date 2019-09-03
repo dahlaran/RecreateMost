@@ -11,7 +11,7 @@ class HomeActivityViewModel(application: Application) : AndroidViewModel(applica
     private var allCategories: LiveData<List<Category>> = categoryRepository.getAll()
 
 
-    fun getAll(): LiveData<List<Category>>{
+    fun getAll(): LiveData<List<Category>> {
         return allCategories
     }
 }

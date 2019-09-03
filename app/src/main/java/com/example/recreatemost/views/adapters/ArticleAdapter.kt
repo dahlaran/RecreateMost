@@ -26,11 +26,13 @@ class ArticleAdapter(private val articleList: List<Article>) :
         val currentArticle: Article = articleList[position]
 
         holder.article = currentArticle
-        holder.titleText.text = currentArticle.titre
+        holder.titleText.text = currentArticle.title
         holder.topNumberText.text = (position + 1).toString() + "."
+        holder.descriptionText.text = currentArticle.countDescription
 
         // TODO: load image for different screen size
-        Picasso.get().load(currentArticle.images.mobile).into(holder.imageBackground)
+        if (currentArticle.imageUrl != "")
+            Picasso.get().load(currentArticle.imageUrl).into(holder.imageBackground)
     }
 
     override fun getItemCount(): Int {
@@ -46,7 +48,7 @@ class ArticleAdapter(private val articleList: List<Article>) :
                 val currentArticle = article
                 if (currentArticle != null) {
                     val intent = Intent(view.context, DescriptionActivity::class.java)
-                    intent.putExtra(DescriptionActivity.EXTRA_ARTICLE, currentArticle.fullUrl)
+                    intent.putExtra(DescriptionActivity.EXTRA_ARTICLE, currentArticle.webUrl)
                     view.context.startActivity(intent)
                 }
             }
@@ -55,7 +57,7 @@ class ArticleAdapter(private val articleList: List<Article>) :
         var article: Article? = null
         val titleText: TextView = view.itemArticleTextTitle
         val topNumberText: TextView = view.itemArticleTextTopNumber
-        val shareArticleText: TextView = view.itemArticleTextShareArticle
+        val descriptionText: TextView = view.itemArticleTextDescription
         val imageBackground: ImageView = view.itemArticleImageBackground
     }
 

@@ -22,7 +22,7 @@ class CategoryAdapter : ListAdapter<Category, CategoryAdapter.HomeViewHolder>(Ca
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentCategory: Category = getItem(position)
 
-        holder.textTitle.text = currentCategory.titre
+        holder.textTitle.text = currentCategory.title
 
         holder.recycler.layoutManager = LinearLayoutManager(holder.recycler.context)
         holder.recycler.itemAnimator = DefaultItemAnimator()

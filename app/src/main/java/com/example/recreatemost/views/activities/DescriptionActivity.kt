@@ -7,11 +7,11 @@ import com.example.recreatemost.R
 import com.example.recreatemost.models.Article
 import kotlinx.android.synthetic.main.activity_description.*
 
-class DescriptionActivity: AppCompatActivity(){
+class DescriptionActivity : AppCompatActivity() {
 
     private var currentArticle: Article? = null
 
-    companion object{
+    companion object {
         const val EXTRA_ARTICLE = "SELECTED_ARTICLE"
     }
 
@@ -20,10 +20,14 @@ class DescriptionActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val serializableFromExtra =  intent.getStringExtra(EXTRA_ARTICLE)
-
         setContentView(R.layout.activity_description)
-        if (serializableFromExtra != null){
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        // Set WebView with the intent send
+        val serializableFromExtra = intent.getStringExtra(EXTRA_ARTICLE)
+        if (serializableFromExtra != null) {
             descriptionActivityWebViewMain.webViewClient = WebViewClient()
             descriptionActivityWebViewMain.loadUrl(serializableFromExtra)
         }

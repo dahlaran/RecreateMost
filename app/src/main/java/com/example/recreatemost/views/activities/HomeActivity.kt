@@ -1,7 +1,7 @@
 package com.example.recreatemost.views.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -33,6 +33,7 @@ class HomeActivity : AppCompatActivity() {
         // Set ViewModel
         viewModel = ViewModelProviders.of(this).get(HomeActivityViewModel::class.java)
         viewModel.getAll().observe(this, Observer<List<Category>> {
+            val test = viewModel.getAll()
             adapter.submitList(it)
         })
     }

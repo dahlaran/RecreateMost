@@ -1,6 +1,6 @@
 package com.example.recreatemost.models
 
-data class Images(
+data class FranceFootballImages(
     val mobile: String,
     val mobile_2x: String,
     val mobile_3x: String,
